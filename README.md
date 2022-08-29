@@ -32,7 +32,7 @@ $$
 Adding the data for the co-occurences, we obtain a posterior
 
 $$
-\rho \sim \text{Beta}(Y + Y^\prime + 1, N - Y - Y^\prime + - X \cdot W + 1)
+\rho \sim \text{Beta}(Y + Y^\prime + 1, N - Y - Y^\prime + X \cdot W + 1)
 $$
 
 where $Y^\prime$ is the number of times the word $y$ occures in the same word window as $x$, $X$ is the number of times word $x$ appears in the data, and $W$ is the window size.
@@ -42,7 +42,7 @@ The mutual information requires the calculation of the expectation
 $$
 \begin{aligned}
 E[\log \frac{p(y \mid x)}{p(y)} \\
-&= E[\log \frac{\rho}{\lambda}
+&= E[\log \frac{\rho}{\lambda}] \\
 &= E[\log (\rho)] - E[\log(\lambda) ]
 \end{aligned}
 $$
@@ -50,5 +50,5 @@ $$
 This has the closed form solution
 
 $$
-E[\log (\rho)] - E[\log(\lambda) ] = \digamma(\alpha_\rho) - \digamma(\alpha_\rho + \beta_\rho) - \digamma(\alpha_\lambda) + \digamma(\alpha_\lambda + \beta_\lambda)
+E[\log (\rho)] - E[\log(\lambda) ] = \psi(\alpha_\rho) - \psi(\alpha_\rho + \beta_\rho) - \psi(\alpha_\lambda) + \psi(\alpha_\lambda + \beta_\lambda)
 $$
